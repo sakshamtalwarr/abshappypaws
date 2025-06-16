@@ -5,21 +5,20 @@ import { Home, Info, Briefcase, Image, MessageCircle, Mail, MapPin, Phone, Clock
 
 // --- Static Data (Replaces Firestore for Products and Categories) ---
 const staticProductsData = [
-  { id: 'p1', name: 'Premium Dog Food', description: 'Nutritious and balanced diet for all dog breeds.', price: '1200', imageUrl: 'https://placehold.co/400x300/F0F8FF/000000?text=Dog+Food', category: 'Food' },
-  { id: 'p2', name: 'Interactive Cat Toy', description: 'Keeps your cat engaged and entertained for hours.', price: '350', imageUrl: 'https://placehold.co/400x300/FFF0F5/000000?text=Cat+Toy', category: 'Toys' },
-  { id: 'p3', name: 'Comfort Pet Bed', description: 'Soft and cozy bed for ultimate pet relaxation.', price: '2500', imageUrl: 'https://placehold.co/400x300/F5FFFA/000000?text=Pet+Bed', category: 'Accessories' },
-  { id: 'p4', name: 'Durable Dog Leash', description: 'Strong and comfortable leash for daily walks.', price: '450', imageUrl: 'https://placehold.co/400x300/F8F8FF/000000?text=Dog+Leash', category: 'Accessories' },
-  { id: 'p5', name: 'Cat Scratching Post', description: 'Protects furniture and satisfies scratching instincts.', price: '900', imageUrl: 'https://placehold.co/400x300/F0FFFF/000000?text=Scratch+Post', category: 'Accessories' },
-  { id: 'p6', name: 'Pet Grooming Brush', description: 'Removes loose fur and keeps coat shiny.', price: '280', imageUrl: 'https://placehold.co/400x300/F0FDFD/000000?text=Grooming+Brush', category: 'Grooming' },
-  { id: 'p7', name: 'Small Animal Carrier', description: 'Safe and comfortable travel carrier for small pets.', price: '1800', imageUrl: 'https://placehold.co/400x300/E0FFFF/000000?text=Pet+Carrier', category: 'Travel' },
-  { id: 'p8', name: 'Waterproof Dog Coat', description: 'Keeps your dog dry and warm in wet weather.', price: '750', imageUrl: 'https://placehold.co/400x300/ADD8E6/000000?text=Dog+Coat', category: 'Apparel' },
-  { id: 'p9', name: 'Bird Seed Mix', description: 'Nutrient-rich food mix for various bird species.', price: '600', imageUrl: 'https://placehold.co/400x300/B0E0E6/000000?text=Bird+Food', category: 'Food' },
-  { id: 'p10', name: 'Fish Tank Decor', description: 'Adds beauty and shelter to your aquarium.', price: '200', imageUrl: 'https://placehold.co/400x300/87CEFA/000000?text=Fish+Decor', category: 'Aquatic' },
-  { id: 'p11', name: 'Rabbit Hay Pellets', description: 'High-fiber diet essential for rabbit digestion.', price: '400', imageUrl: 'https://placehold.co/400x300/6A5ACD/000000?text=Rabbit+Food', category: 'Food' },
-  { id: 'p12', name: 'Hamster Wheel', description: 'Provides essential exercise for small rodents.', price: '150', imageUrl: 'https://placehold.co/400x300/7B68EE/000000?text=Hamster+Wheel', category: 'Toys' },
-  { id: 'p13', name: 'Premium Cat Litter', description: 'Superior odor control and clumping for cat litter boxes.', price: '700', imageUrl: 'https://placehold.co/400x300/C6E2FF/000000?text=Cat+Litter', category: 'Hygiene' },
-  { id: 'p14', name: 'Dog Training Clicker', description: 'Effective tool for positive reinforcement training.', price: '100', imageUrl: 'https://placehold.co/400x300/B0C4DE/000000?text=Training+Clicker', category: 'Training' },
-  { id: 'p15', name: 'Aquarium Filter', description: 'Keeps aquarium water clean and clear.', price: '950', imageUrl: 'https://placehold.co/400x300/ADD8E6/000000?text=Aquarium+Filter', category: 'Aquatic' },
+  { id: 'p1', name: 'Premium Dog Food', description: 'Nutritious and balanced diet for all dog breeds.', imageUrl: 'https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1748595262&width=1445', category: 'Food' },
+  { id: 'p2', name: 'Interactive Dog / Cat Toy', description: 'Keeps your cat engaged and entertained for hours.', imageUrl: 'https://www.jiomart.com/images/product/original/rvtr5xcaym/petzluv-dog-toys-for-small-dogs-dog-toys-100-cotton-ball-rope-for-chewing-puppy-teeth-product-images-orvtr5xcaym-p609362718-0-202406160625.jpg?im=Resize=(1000,1000)', category: 'Toys' },
+  { id: 'p3', name: 'Comfort Pet Bed', description: 'Soft and cozy bed for ultimate pet relaxation.', imageUrl: 'https://assets.ajio.com/medias/sys_master/root/20231025/cwGw/65394101ddf77915195a8d78/-473Wx593H-466745067-blue-MODEL.jpg', category: 'Accessories' },
+  { id: 'p4', name: 'Durable Dog Leash', description: 'Strong and comfortable leash for daily walks.', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFXDZcjDuB5pPETXErqoMd12EG9_8cf7fVGQ&s', category: 'Accessories' },
+  { id: 'p5', name: 'Cat Scratching Post', description: 'Protects furniture and satisfies scratching instincts.', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjuqF3qnaCasCjiP8Y8V9JctQRsfyLmf6VeA&s', category: 'Accessories' },
+  { id: 'p6', name: 'Pet Grooming Brush', description: 'Removes loose fur and keeps coat shiny.', imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2023/4/304228901/WD/QW/AF/31331120/self-cleaning-slicker-brush-for-dogs-cats-gently-removes-loose-undercoat-mats-tangled-hair-500x500.jpg', category: 'Grooming' },
+  { id: 'p7', name: 'Small Animal Carrier', description: 'Safe and comfortable travel carrier for small pets.', imageUrl: 'https://rukminim2.flixcart.com/image/750/900/xif0q/pet-carrier/m/l/e/eihvfjoejo-pet-guard-original-imagxw3vwjq4cawr.jpeg?q=90&crop=false', category: 'Travel' },
+  { id: 'p8', name: 'Waterproof Dog Coat', description: 'Keeps your dog dry and warm in wet weather.',  imageUrl: 'https://binkymart.com/wp-content/uploads/2024/12/Binkymart-Red-Water-resistence-coat-4.jpg', category: 'Apparel' },
+  { id: 'p9', name: 'Bird Seed Mix', description: 'Nutrient-rich food mix for various bird species.', imageUrl: 'https://m.media-amazon.com/images/I/61ftx+PrUkL.jpg', category: 'Food' },
+  { id: 'p10', name: 'Fish Tank Decor', description: 'Adds beauty and shelter to your aquarium.', imageUrl: 'https://m.media-amazon.com/images/I/81UNNm5x8nL.jpg', category: 'Aquatic' },
+  { id: 'p12', name: 'Hamster Wheel', description: 'Provides essential exercise for small rodents.', imageUrl: 'https://images-cdn.ubuy.co.in/6565e041c7716655ac7e6a93-tielishor-hamster-wheel-silent.jpg', category: 'Toys' },
+  { id: 'p13', name: 'Premium Cat Litter', description: 'Superior odor control and clumping for cat litter boxes.',  imageUrl: 'https://amarpet.blob.core.windows.net/production/6449f44a102fde848669bdd9eb6b76fa/Coziecat-Premium-Clumping-Cat-Litter-Unscented-5L.png', category: 'Hygiene' },
+  { id: 'p14', name: 'Dog Training Clicker', description: 'Effective tool for positive reinforcement training.',  imageUrl: 'https://placehold.co/400x300/B0C4DE/000000?text=Training+Clicker', category: 'Training' },
+  { id: 'p15', name: 'Aquarium Filter', description: 'Keeps aquarium water clean and clear.',  imageUrl: 'https://placehold.co/400x300/ADD8E6/000000?text=Aquarium+Filter', category: 'Aquatic' },
 ];
 
 const staticCategoriesData = [
