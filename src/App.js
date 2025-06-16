@@ -83,7 +83,7 @@ const LiveTimeIST = () => {
 
   return (
     // Adjusted top position to clear the fixed navbar
-    <div className="fixed top-28 right-4 md:top-28 md:right-4 z-40 bg-gray-800 text-white text-sm px-3 py-1 rounded-full shadow-md animate-fadeIn">
+    <div className="fixed top-25 right-4 md:top-28 md:right-4 z-40 bg-gray-800 text-white text-sm px-3 py-1 rounded-full shadow-md animate-fadeIn">
       {currentTime} IST
     </div>
   );
