@@ -41,8 +41,8 @@ const LoadingScreen = ({ fadeEffect }) => {
     <div className={`fixed inset-0 bg-gray-50 flex items-center justify-center z-50 transition-opacity duration-500 ${fadeEffect === 'fade-out' ? 'opacity-0' : 'opacity-100'}`}>
       <div className={`text-center transition-all duration-500 ${fadeEffect === 'fade-out' ? 'scale-75 opacity-0' : 'scale-100 opacity-100'}`}>
         <div className="relative inline-block">
-          <PawPrint className="text-[#0AB9C6] h-24 w-24 transform rotate-[-15deg] animate-bounce-slow" />
-          <Bot className="h-12 w-12 absolute top-4 left-1/2 -translate-x-1/2 text-yellow-300 animate-pulse-slow" />
+          <PawPrint className="text-[#0AB9C6] h-24 w-24 transform rotate-[-45deg] animate-bounce-slow" />
+          {/* <Bot className="h-12 w-12 absolute top-4 left-1/2 -translate-x-1/2 text-black-300 animate-pulse-slow" /> */}
         </div>
         {/* Applied Playfair Display */}
         {/* Replaced text with image logo as requested */}
@@ -51,7 +51,7 @@ const LoadingScreen = ({ fadeEffect }) => {
           alt="AB Happy Paws Logo"
           className="mx-auto mt-4 w-48 md:w-64 h-auto" // Adjust width as needed
         />
-        <p className="text-lg text-gray-700 mt-2">Loading happiness...</p>
+        <p className="text-lg text-gray-700 mt-2" style={{ fontFamily: 'Playfair Display, serif' }}>Loading happiness...</p>
       </div>
     </div>
   );
@@ -110,7 +110,7 @@ const Navbar = ({ setCurrentPage, currentPage }) => {
     <nav className="bg-[#0AB9C6]/70 backdrop-blur-md shadow-lg py-4 px-6 md:px-12 flex justify-between items-center fixed w-full z-50 rounded-b-lg border-b border-gray-100">
       {/* Brand Logo/Name */}
       <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
-        <PawPrint className="text-[#0AB9C6] h-9 w-9 transform rotate-[-15deg]" /> {/* Teal paw print, slightly rotated */}
+        {/* <PawPrint className="text-white h-9 w-9 transform rotate-[-15deg]" /> Teal paw print, slightly rotated */}
         {/* Replaced text with image logo as requested */}
         <img
           src="https://pawclub.in/wp-content/uploads/2022/07/ABs-Happy-Paws_Bengaluru4.jpg" // Path to your logo image
@@ -118,7 +118,6 @@ const Navbar = ({ setCurrentPage, currentPage }) => {
           className="h-11 w-auto" // Adjust height as needed
         />
       </div>
-
       {/* Desktop Navigation */}
       <div className="hidden md:flex space-x-8 items-center">
         {navItems.map((item) => (
