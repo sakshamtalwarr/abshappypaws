@@ -1200,8 +1200,9 @@ const AppointmentPage = ({ setCurrentPage }) => {
           <div className="mt-12">
             <h3 className="text-3xl font-semibold text-gray-900 mb-6 font-playfair">Find Us on <span className="text-[#0AB9C6]">Map</span></h3> {/* Applied Playfair Display */}
             <div className="bg-gray-200 h-72 rounded-lg flex items-center justify-center text-gray-500 text-xl font-medium border-2 border-gray-300 overflow-hidden">
+             
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8937965942735!2d77.56847847509893!3d12.977461487352345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae163a7b1d1f0d%3A0x28f7d93026a7e0c!2sChakravarthy%20Iyengar%20Layout!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.620989237652!2d77.58252809999999!3d12.996076299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17a28540316b%3A0x3bde35149f665670!2sAB&#39;s%20Happy%20Paws!5e0!3m2!1sen!2sin!4v1750110605040!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
