@@ -107,7 +107,7 @@ const Navbar = ({ setCurrentPage, currentPage }) => {
   };
 
   return (
-    <nav className="bg-white/70 backdrop-blur-md shadow-lg py-4 px-6 md:px-12 flex justify-between items-center fixed w-full z-50 rounded-b-lg border-b border-gray-100">
+    <nav className="bg-[#0AB9C6]/70 backdrop-blur-md shadow-lg py-4 px-6 md:px-12 flex justify-between items-center fixed w-full z-50 rounded-b-lg border-b border-gray-100">
       {/* Brand Logo/Name */}
       <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
         <PawPrint className="text-[#0AB9C6] h-9 w-9 transform rotate-[-15deg]" /> {/* Teal paw print, slightly rotated */}
