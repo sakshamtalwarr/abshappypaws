@@ -5,20 +5,21 @@ import { Home, Info, Briefcase, Image, MessageCircle, Mail, MapPin, Phone, Clock
 
 // --- Static Data (Replaces Firestore for Products and Categories) ---
 const staticProductsData = [
-  { id: 'p1', name: 'Premium Dog Food', description: 'Nutritious and balanced diet for all dog breeds.', imageUrl: 'https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1748595262&width=1445', category: 'Food' },
-  { id: 'p2', name: 'Interactive Dog / Cat Toy', description: 'Keeps your cat engaged and entertained for hours.', imageUrl: 'https://www.jiomart.com/images/product/original/rvtr5xcaym/petzluv-dog-toys-for-small-dogs-dog-toys-100-cotton-ball-rope-for-chewing-puppy-teeth-product-images-orvtr5xcaym-p609362718-0-202406160625.jpg?im=Resize=(1000,1000)', category: 'Toys' },
-  { id: 'p3', name: 'Comfort Pet Bed', description: 'Soft and cozy bed for ultimate pet relaxation.', imageUrl: 'https://assets.ajio.com/medias/sys_master/root/20231025/cwGw/65394101ddf77915195a8d78/-473Wx593H-466745067-blue-MODEL.jpg', category: 'Accessories' },
-  { id: 'p4', name: 'Durable Dog Leash', description: 'Strong and comfortable leash for daily walks.', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFXDZcjDuB5pPETXErqoMd12EG9_8cf7fVGQ&s', category: 'Accessories' },
-  { id: 'p5', name: 'Cat Scratching Post', description: 'Protects furniture and satisfies scratching instincts.', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjuqF3qnaCasCjiP8Y8V9JctQRsfyLmf6VeA&s', category: 'Accessories' },
-  { id: 'p6', name: 'Pet Grooming Brush', description: 'Removes loose fur and keeps coat shiny.', imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2023/4/304228901/WD/QW/AF/31331120/self-cleaning-slicker-brush-for-dogs-cats-gently-removes-loose-undercoat-mats-tangled-hair-500x500.jpg', category: 'Grooming' },
-  { id: 'p7', name: 'Small Animal Carrier', description: 'Safe and comfortable travel carrier for small pets.', imageUrl: 'https://rukminim2.flixcart.com/image/750/900/xif0q/pet-carrier/m/l/e/eihvfjoejo-pet-guard-original-imagxw3vwjq4cawr.jpeg?q=90&crop=false', category: 'Travel' },
-  { id: 'p8', name: 'Waterproof Dog Coat', description: 'Keeps your dog dry and warm in wet weather.',  imageUrl: 'https://binkymart.com/wp-content/uploads/2024/12/Binkymart-Red-Water-resistence-coat-4.jpg', category: 'Apparel' },
-  { id: 'p9', name: 'Bird Seed Mix', description: 'Nutrient-rich food mix for various bird species.', imageUrl: 'https://m.media-amazon.com/images/I/61ftx+PrUkL.jpg', category: 'Food' },
-  { id: 'p10', name: 'Fish Tank Decor', description: 'Adds beauty and shelter to your aquarium.', imageUrl: 'https://m.media-amazon.com/images/I/81UNNm5x8nL.jpg', category: 'Aquatic' },
-  { id: 'p12', name: 'Hamster Wheel', description: 'Provides essential exercise for small rodents.', imageUrl: 'https://images-cdn.ubuy.co.in/6565e041c7716655ac7e6a93-tielishor-hamster-wheel-silent.jpg', category: 'Toys' },
-  { id: 'p13', name: 'Premium Cat Litter', description: 'Superior odor control and clumping for cat litter boxes.',  imageUrl: 'https://amarpet.blob.core.windows.net/production/6449f44a102fde848669bdd9eb6b76fa/Coziecat-Premium-Clumping-Cat-Litter-Unscented-5L.png', category: 'Hygiene' },
-  { id: 'p14', name: 'Dog Training Clicker', description: 'Effective tool for positive reinforcement training.',  imageUrl: 'https://placehold.co/400x300/B0C4DE/000000?text=Training+Clicker', category: 'Training' },
-  { id: 'p15', name: 'Aquarium Filter', description: 'Keeps aquarium water clean and clear.',  imageUrl: 'https://placehold.co/400x300/ADD8E6/000000?text=Aquarium+Filter', category: 'Aquatic' },
+  { id: 'p1', name: 'Premium Dog Food', description: 'Nutritious and balanced diet for all dog breeds.', imageUrl: 'https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1748595262&width=1445', category: 'Food', price: 999 },
+  { id: 'p2', name: 'Interactive Dog / Cat Toy', description: 'Keeps your cat engaged and entertained for hours.', imageUrl: 'https://www.jiomart.com/images/product/original/rvtr5xcaym/petzluv-dog-toys-for-small-dogs-dog-toys-100-cotton-ball-rope-for-chewing-puppy-teeth-product-images-orvtr5xcaym-p609362718-0-202406160625.jpg?im=Resize=(1000,1000)', category: 'Toys', price: 299 },
+  { id: 'p3', name: 'Comfort Pet Bed', description: 'Soft and cozy bed for ultimate pet relaxation.', imageUrl: 'https://assets.ajio.com/medias/sys_master/root/20231025/cwGw/65394101ddf77915195a8d78/-473Wx593H-466745067-blue-MODEL.jpg', category: 'Accessories', price: 1499 },
+  { id: 'p4', name: 'Durable Dog Leash', description: 'Strong and comfortable leash for daily walks.', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFXDZcjDuB5pPETXErqoMd12EG9_8cf7fVGQ&s', category: 'Accessories', price: 499 },
+  { id: 'p5', name: 'Cat Scratching Post', description: 'Protects furniture and satisfies scratching instincts.', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjuqF3qnaCasCjiP8Y8V9JctQRsfyLmf6VeA&s', category: 'Accessories', price: 799 },
+  { id: 'p6', name: 'Pet Grooming Brush', description: 'Removes loose fur and keeps coat shiny.', imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2023/4/304228901/WD/QW/AF/31331120/self-cleaning-slicker-brush-for-dogs-cats-gently-removes-loose-undercoat-mats-tangled-hair-500x500.jpg', category: 'Grooming', price: 349 },
+  { id: 'p7', name: 'Small Animal Carrier', description: 'Safe and comfortable travel carrier for small pets.', imageUrl: 'https://rukminim2.flixcart.com/image/750/900/xif0q/pet-carrier/m/l/e/eihvfjoejo-pet-guard-original-imagxw3vwjq4cawr.jpeg?q=90&crop=false', category: 'Travel', price: 1200 },
+  { id: 'p8', name: 'Waterproof Dog Coat', description: 'Keeps your dog dry and warm in wet weather.',  imageUrl: 'https://binkymart.com/wp-content/uploads/2024/12/Binkymart-Red-Water-resistence-coat-4.jpg', category: 'Apparel', price: 899 },
+  { id: 'p9', name: 'Bird Seed Mix', description: 'Nutrient-rich food mix for various bird species.', imageUrl: 'https://m.media-amazon.com/images/I/61ftx+PrUkL.jpg', category: 'Food', price: 199 },
+  { id: 'p10', name: 'Fish Tank Decor', description: 'Adds beauty and shelter to your aquarium.', imageUrl: 'https://m.media-amazon.com/images/I/81UNNm5x8nL.jpg', category: 'Aquatic', price: 450 },
+  { id: 'p11', name: 'Premium Fish Food', description: 'High-quality flakes for all freshwater fish.', imageUrl: 'https://placehold.co/400x300/A0E7E7/000000?text=Fish+Food', category: 'Food', price: 150 },
+  { id: 'p12', name: 'Hamster Wheel', description: 'Provides essential exercise for small rodents.', imageUrl: 'https://images-cdn.ubuy.co.in/6565e041c7716655ac7e6a93-tielishor-hamster-wheel-silent.jpg', category: 'Toys', price: 300 },
+  { id: 'p13', name: 'Premium Cat Litter', description: 'Superior odor control and clumping for cat litter boxes.',  imageUrl: 'https://amarpet.blob.core.windows.net/production/6449f44a102fde848669bdd9eb6b76fa/Coziecat-Premium-Clumping-Cat-Litter-Unscented-5L.png', category: 'Hygiene', price: 600 },
+  { id: 'p14', name: 'Dog Training Clicker', description: 'Effective tool for positive reinforcement training.',  imageUrl: 'https://placehold.co/400x300/B0C4DE/000000?text=Training+Clicker', category: 'Training', price: 100 },
+  { id: 'p15', name: 'Aquarium Filter', description: 'Keeps aquarium water clean and clear.',  imageUrl: 'https://placehold.co/400x300/ADD8E6/000000?text=Aquarium+Filter', category: 'Aquatic', price: 750 },
 ];
 
 const staticCategoriesData = [
@@ -401,7 +402,8 @@ const HomePage = ({ setCurrentPage }) => {
       >
         <div className="absolute inset-0 bg-black opacity-55 rounded-b-lg"></div>
         <div className="text-center text-white p-8 rounded-lg relative z-10 max-w-4xl mx-auto animate-fadeInUp">
-          <h2 className="text-base md:text-xl font-semibold mb-2 text-[#0AB9C6] uppercase tracking-wide font-lato">Welcome to AB's Happy Paws</h2>
+          {/* Increased font size for h2 and added Playfair Display font */}
+          <h2 className="text-2xl md:text-4xl font-semibold mb-2 text-[#0AB9C6] uppercase tracking-wide font-playfair">Welcome to AB's Happy Paws</h2>
           {/* Applied Playfair Display */}
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg font-playfair">
             Where Every <span className="text-[#0AB9C6]">🐾</span> is Pampered!
@@ -431,7 +433,7 @@ const HomePage = ({ setCurrentPage }) => {
         ref={aboutRef}
         className={`bg-white py-20 px-6 md:px-12 transition-all duration-1000 ease-out ${
           aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        } shadow-lg border border-gray-100 rounded-lg m-4 neon-blue-shadow`} /* Added neon shadow */
       >
         <div className="max-w-7xl mx-auto text-center">
           {/* Applied Playfair Display */}
@@ -452,7 +454,7 @@ const HomePage = ({ setCurrentPage }) => {
       </div>
 
       {/* Value Proposition / Animated Sections */}
-      <div className="bg-gradient-to-br from-emerald-50 to-blue-50 py-20 px-6 md:px-12">
+      <div className="bg-gradient-to-br from-emerald-50 to-blue-50 py-20 px-6 md:px-12 rounded-lg m-4 neon-green-shadow"> {/* Added neon shadow */}
         <div className="max-w-7xl mx-auto">
           {/* Applied Playfair Display */}
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 relative font-playfair">
@@ -482,7 +484,7 @@ const HomePage = ({ setCurrentPage }) => {
       </div>
 
       {/* Top Rated Services Section */}
-      <div className="bg-white py-20 px-6 md:px-12">
+      <div className="bg-white py-20 px-6 md:px-12 rounded-lg m-4 neon-purple-shadow"> {/* Added neon shadow */}
         <div className="max-w-7xl mx-auto text-center">
           {/* Applied Playfair Display */}
           <h3 className="text-4xl font-bold mb-10 text-gray-900 relative font-playfair">
@@ -510,7 +512,7 @@ const HomePage = ({ setCurrentPage }) => {
       </div>
 
       {/* Products Section Preview */}
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-20 px-6 md:px-12">
+      <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-20 px-6 md:px-12 rounded-lg m-4 neon-pink-shadow"> {/* Added neon shadow */}
         <div className="max-w-7xl mx-auto text-center">
           {/* Applied Playfair Display */}
           <h3 className="text-4xl font-bold mb-10 text-gray-900 relative font-playfair">
@@ -531,7 +533,7 @@ const HomePage = ({ setCurrentPage }) => {
       </div>
 
       {/* AI Pet Assistant Section (on Home Page) */}
-      <div className="bg-[#e0f7fa] py-20 px-6 md:px-12 text-center rounded-b-lg">
+      <div className="bg-[#e0f7fa] py-20 px-6 md:px-12 text-center rounded-b-lg m-4 neon-teal-shadow"> {/* Added neon shadow */}
         <div className="max-w-4xl mx-auto p-10 rounded-xl shadow-lg border-2 border-[#0AB9C6]">
           <h3 className="text-4xl font-bold text-gray-900 mb-8 flex items-center justify-center font-playfair">
             <Bot className="w-10 h-10 mr-4 text-[#0AB9C6]" />
@@ -584,7 +586,7 @@ const HomePage = ({ setCurrentPage }) => {
 
 
       {/* Book Appointment Section */}
-      <div className="bg-[#0AB9C6] bg-opacity-80 py-20 px-6 md:px-12 text-center text-white">
+      <div className="bg-[#0AB9C6] bg-opacity-80 py-20 px-6 md:px-12 text-center text-white rounded-lg m-4 neon-blue-shadow"> {/* Added neon shadow */}
         <div className="max-w-4xl mx-auto">
           {/* Applied Playfair Display */}
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-playfair">Ready to Pamper Your Pet?</h2>
@@ -637,7 +639,7 @@ const AboutPage = ({ setCurrentPage }) => {
           About <span className="text-[#0AB9C6]">AB Happy Paws</span>
           <span className="block w-20 h-1 bg-[#0AB9C6] mx-auto mt-4 rounded-full"></span>
         </h2>
-        <div className="flex flex-col md:flex-row items-center gap-16 mb-20">
+        <div className="flex flex-col md:flex-row items-center gap-16 mb-20 neon-green-shadow rounded-xl p-4"> {/* Added neon shadow */}
           <div className="md:w-1/2 animate-slideInLeft">
             <img
               src="https://placehold.co/600x400/90ee90/000000?text=Caring+for+Pets"
@@ -662,7 +664,7 @@ const AboutPage = ({ setCurrentPage }) => {
         </div>
 
         {/* Qualities Section */}
-        <div className="mb-20">
+        <div className="mb-20 neon-blue-shadow rounded-xl p-4"> {/* Added neon shadow */}
           {/* Applied Playfair Display */}
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-10 font-playfair">Why Choose <span className="text-[#0AB9C6]">AB's Happy Paws</span>?</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -676,7 +678,7 @@ const AboutPage = ({ setCurrentPage }) => {
         </div>
 
         {/* Peace of Mind Section */}
-        <div className="bg-[#0AB9C6] bg-opacity-20 p-10 rounded-xl text-center shadow-xl border-2 border-[#0AB9C6] mb-20"> {/* Increased opacity for better contrast */}
+        <div className="bg-[#0AB9C6] bg-opacity-20 p-10 rounded-xl text-center shadow-xl border-2 border-[#0AB9C6] mb-20 neon-purple-shadow"> {/* Increased opacity for better contrast, added neon shadow */}
           <h3 className="text-4xl font-bold text-gray-900 mb-6 font-playfair">Peace of Mind Grooming: <span className="text-[#0AB9C6]">Your Pets are 100% Safe</span></h3> {/* Applied Playfair Display */}
           <p className="text-lg text-gray-700 mb-8">
             100% Safe for Your Beloved Pets. Gentle, expert care with guaranteed well-being. Trust our dedicated team!
@@ -687,7 +689,7 @@ const AboutPage = ({ setCurrentPage }) => {
         </div>
 
         {/* Team Section */}
-        <div>
+        <div className="neon-pink-shadow rounded-xl p-4"> {/* Added neon shadow */}
           <h3 className="text-4xl font-bold text-center text-gray-900 mb-16 relative font-playfair"> {/* Applied Playfair Display */}
             Meet Our <span className="text-[#0AB9C6]">Expert Team</span>
             <span className="block w-20 h-1 bg-[#0AB9C6] mx-auto mt-4 rounded-full"></span>
@@ -769,7 +771,7 @@ const ServicesPage = ({ setCurrentPage }) => {
           Our <span className="text-[#0AB9C6]">Compassionate Services</span>
           <span className="block w-20 h-1 bg-[#0AB9C6] mx-auto mt-4 rounded-full"></span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 neon-blue-shadow rounded-xl p-4"> {/* Added neon shadow */}
           {services.map((service, index) => (
             <div
               key={index}
@@ -859,7 +861,7 @@ const ProductsPage = ({ products, categories, setCurrentPage }) => {
                 </div>
 
                 {/* Category Navigation */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="flex flex-wrap justify-center gap-4 mb-12 neon-green-shadow rounded-full p-2"> {/* Added neon shadow */}
                     {/* Ensure 'All' is always the first option, then map other categories from state */}
                     {['All', ...categories.map(cat => cat.name)].map((category) => (
                         <button
@@ -876,7 +878,7 @@ const ProductsPage = ({ products, categories, setCurrentPage }) => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 neon-purple-shadow rounded-xl p-4"> {/* Added neon shadow */}
                     {productsToDisplay.map((product) => (
                         <div key={product.id} className="bg-orange-50 rounded-xl shadow-xl overflow-hidden transform transition duration-500 hover:scale-[1.03] hover:shadow-2xl cursor-pointer flex flex-col border-t-4 border-orange-200">
                             <img src={product.imageUrl} alt={product.name} className="w-full h-52 object-cover object-center rounded-t-xl" />
@@ -958,7 +960,7 @@ const ProductGalleryPage = ({ products, categories, setCurrentPage }) => {
                 </div>
 
                 {Object.keys(categorizedProducts).map((categoryName) => (
-                    <div key={categoryName} className="mb-16">
+                    <div key={categoryName} className="mb-16 neon-pink-shadow rounded-xl p-4"> {/* Added neon shadow */}
                         <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center relative font-playfair">
                             <span className="text-[#0AB9C6]">{categoryName}</span>
                             <span className="block w-16 h-1 bg-[#0AB9C6] mx-auto mt-3 rounded-full"></span>
@@ -1016,7 +1018,7 @@ const GalleryPage = () => {
           Our <span className="text-[#0AB9C6]">Happy Paws Gallery</span>
           <span className="block w-20 h-1 bg-[#0AB9C6] mx-auto mt-4 rounded-full"></span>
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 neon-teal-shadow rounded-xl p-4"> {/* Added neon shadow */}
           {images.map((src, index) => (
             <div key={index} className="relative overflow-hidden rounded-xl shadow-xl group cursor-pointer border-t-4 border-green-200"> {/* Enhanced shadow and added border */}
               <img
@@ -1086,7 +1088,7 @@ const TestimonialsPage = ({ setCurrentPage }) => {
           Valuable Words From <span className="text-[#0AB9C6]">Our Customers</span>
           <span className="block w-20 h-1 bg-[#0AB9C6] mx-auto mt-4 rounded-full"></span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 neon-orange-shadow rounded-xl p-4"> {/* Added neon shadow */}
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
@@ -1107,7 +1109,7 @@ const TestimonialsPage = ({ setCurrentPage }) => {
         </div>
 
         {/* Special Offers Section */}
-        <div>
+        <div className="neon-yellow-shadow rounded-xl p-4"> {/* Added neon shadow */}
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 relative font-playfair"> {/* Applied Playfair Display */}
             Our <span className="text-[#0AB9C6]">Special Offers</span>
             <span className="block w-20 h-1 bg-[#0AB9C6] mx-auto mt-4 rounded-full"></span>
@@ -1150,7 +1152,7 @@ const AppointmentPage = ({ setCurrentPage }) => {
     <section className="py-24 px-6 md:px-12 bg-white mt-[88px]"> {/* Adjusted mt for navbar clearance */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Contact Information & Booking Steps */}
-        <div className="bg-purple-50 p-10 rounded-xl shadow-xl"> {/* Changed background to purple-50 and enhanced shadow */}
+        <div className="bg-purple-50 p-10 rounded-xl shadow-xl neon-purple-shadow"> {/* Changed background to purple-50 and enhanced shadow */}
           <h2 className="text-4xl font-bold text-gray-900 mb-8 font-playfair">Make an <span className="text-[#0AB9C6]">Appointment</span></h2> {/* Applied Playfair Display */}
 
           {/* New Top Buttons */}
@@ -1216,7 +1218,7 @@ const AppointmentPage = ({ setCurrentPage }) => {
         </div>
 
         {/* Google Form Embed */}
-        <div className="bg-emerald-50 p-10 rounded-xl shadow-xl"> {/* Changed background to emerald-50 and enhanced shadow */}
+        <div className="bg-emerald-50 p-10 rounded-xl shadow-xl neon-green-shadow"> {/* Changed background to emerald-50 and enhanced shadow */}
           <h2 className="text-4xl font-bold text-gray-900 mb-8 font-playfair">Fill Our <span className="text-[#0AB9C6]">Online Appointment Form</span></h2> {/* Applied Playfair Display */}
           <div className="w-full h-[600px] overflow-hidden rounded-lg shadow-md border border-gray-300">
             <iframe
@@ -1418,7 +1420,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
         </h2>
 
         {/* Latest Blogs Section */}
-        <div className="mb-20">
+        <div className="mb-20 neon-blue-shadow rounded-xl p-4"> {/* Added neon shadow */}
           <h3 className="text-3xl font-bold text-gray-900 mb-10 text-center md:text-left font-playfair">Our Latest Blogs</h3> {/* Applied Playfair Display */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {blogPosts.map((post, index) => (
@@ -1440,7 +1442,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
         </div>
 
         {/* Frequently Asked Questions Section */}
-        <div className="mb-20">
+        <div className="mb-20 neon-green-shadow rounded-xl p-4"> {/* Added neon shadow */}
           <h3 className="text-3xl font-bold text-gray-900 mb-10 text-center md:text-left font-playfair">Frequently Asked Questions</h3> {/* Applied Playfair Display */}
           <div className="space-y-6">
             {faqs.map((faq, index) => (
@@ -1463,7 +1465,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
         </div>
 
         {/* AI Pet Assistant Section */}
-        <div id="ai-assistant-section" ref={aiAssistantRef} className="bg-[#e0f7fa] p-10 rounded-xl shadow-lg border-2 border-[#0AB9C6] text-center">
+        <div id="ai-assistant-section" ref={aiAssistantRef} className="bg-[#e0f7fa] p-10 rounded-xl shadow-lg border-2 border-[#0AB9C6] text-center neon-teal-shadow"> {/* Added neon shadow */}
           <h3 className="text-4xl font-bold text-gray-900 mb-8 flex items-center justify-center font-playfair"> {/* Applied Playfair Display */}
             <Bot className="w-10 h-10 mr-4 text-[#0AB9C6]" />
             Talk to <span className="text-[#0AB9C6]">✨AI Pet Assistant✨</span>
@@ -1630,6 +1632,39 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-lato bg-gray-50 text-gray-800">
+      {/* Google Fonts Import for Playfair Display */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+          .font-playfair {
+            font-family: 'Playfair Display', serif;
+          }
+
+          /* Neon Shadow Effects */
+          .neon-blue-shadow {
+            box-shadow: 0 0 10px rgba(0, 179, 255, 0.7), 0 0 20px rgba(0, 179, 255, 0.5), 0 0 30px rgba(0, 179, 255, 0.3);
+          }
+          .neon-green-shadow {
+            box-shadow: 0 0 10px rgba(0, 255, 127, 0.7), 0 0 20px rgba(0, 255, 127, 0.5), 0 0 30px rgba(0, 255, 127, 0.3);
+          }
+          .neon-purple-shadow {
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.7), 0 0 20px rgba(138, 43, 226, 0.5), 0 0 30px rgba(138, 43, 226, 0.3);
+          }
+          .neon-pink-shadow {
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.7), 0 0 20px rgba(255, 20, 147, 0.5), 0 0 30px rgba(255, 20, 147, 0.3);
+          }
+          .neon-teal-shadow {
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+          }
+          .neon-orange-shadow {
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.7), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.3);
+          }
+          .neon-yellow-shadow {
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 30px rgba(255, 255, 0, 0.3);
+          }
+        `}
+      </style>
+
       {isLoading && <LoadingScreen fadeEffect={fadeEffect} />}
 
       <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
