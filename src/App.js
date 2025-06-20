@@ -36,6 +36,46 @@ const staticCategoriesData = [
 
 // --- Component Definitions ---
 
+// Scroll Progress Bar Component
+const ScrollProgressBar = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate total scrollable height (document height minus viewport height)
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      // Get current scroll position from the top
+      const scrolled = window.scrollY;
+
+      if (totalHeight > 0) {
+        // Calculate percentage scrolled
+        setScrollProgress((scrolled / totalHeight) * 100);
+      } else {
+        // If content is not scrollable, set progress to 100% or 0% as desired
+        setScrollProgress(100);
+      }
+    };
+
+    // Add scroll event listener when component mounts
+    window.addEventListener('scroll', handleScroll);
+    // Initial call to set progress bar position immediately on load
+    handleScroll();
+
+    // Clean up event listener when component unmounts
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-1.5 bg-gray-200 z-[999]"> {/* Higher z-index to be on top */}
+      <div
+        className="h-full bg-[#0AB9C6] transition-all duration-75 ease-out" // Smoother transition
+        style={{ width: `${scrollProgress}%` }}
+      ></div>
+    </div>
+  );
+};
+
+
 // Loading Screen Component
 const LoadingScreen = ({ fadeEffect }) => {
   return (
@@ -273,6 +313,7 @@ const HomePage = ({ setCurrentPage }) => {
   const [aiResponse, setAiResponse] = useState('');
   const [loadingAi, setLoadingAi] = useState(false);
   const [aiError, setAiError] = useState('');
+  const [aiProgressMessage, setAiProgressMessage] = useState(''); // New state for progress message
 
   const randomPrompts = [
     "What are the best dog breeds for first-time owners?",
@@ -348,6 +389,7 @@ const HomePage = ({ setCurrentPage }) => {
     setAiQuestion(randomPrompts[randomIndex]);
     setAiResponse(''); // Clear previous AI response
     setAiError(''); // Clear previous AI error
+    setAiProgressMessage(''); // Clear progress message
   };
 
   const askAi = async () => {
@@ -358,6 +400,7 @@ const HomePage = ({ setCurrentPage }) => {
     setLoadingAi(true);
     setAiResponse('');
     setAiError('');
+    setAiProgressMessage('Connecting to AI assistant...'); // Initial message
 
     try {
       let chatHistory = [];
@@ -366,6 +409,7 @@ const HomePage = ({ setCurrentPage }) => {
       const apiKey = ""; // Canvas will provide this at runtime
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
+      setAiProgressMessage('Sending your query...'); // Progress message
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -373,23 +417,33 @@ const HomePage = ({ setCurrentPage }) => {
       });
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.status} ${response.statusText}`);
+        const errorBody = await response.text();
+        console.error("API non-OK response:", response.status, response.statusText, errorBody);
+        throw new Error(`API error: ${response.status} ${response.statusText} - ${errorBody}`);
       }
 
+      setAiProgressMessage('Generating response for you...'); // Progress message
       const result = await response.json();
+
       if (result.candidates && result.candidates.length > 0 &&
           result.candidates[0].content && result.candidates[0].content.parts &&
           result.candidates[0].content.parts.length > 0) {
         const text = result.candidates[0].content.parts[0].text;
         setAiResponse(text);
+        setAiProgressMessage('Response generated successfully!'); // Final success message
       } else {
-        setAiError("Sorry, I couldn't generate a response. Please try again.");
+        console.error("Unexpected API response structure:", result);
+        setAiError("Sorry, I couldn't generate a response. The AI provided an unexpected format. Please try again.");
+        setAiProgressMessage('Failed to generate response.'); // Final error message
       }
     } catch (error) {
       console.error("Error calling Gemini API:", error);
-      setAiError("An error occurred while fetching a response. Please try again later.");
+      setAiError(`An error occurred while fetching a response: ${error.message || error}. Please try again later.`);
+      setAiProgressMessage('An error occurred during generation.'); // Final error message
     } finally {
       setLoadingAi(false);
+      // You might want to clear the progress message after a short delay or on next user input
+      // setTimeout(() => setAiProgressMessage(''), 3000);
     }
   };
 
@@ -423,6 +477,23 @@ const HomePage = ({ setCurrentPage }) => {
               className="bg-transparent border-2 border-white text-white font-bold py-4 px-10 rounded-full shadow-xl transition duration-300 transform hover:scale-105 active:scale-95 hover:bg-white hover:text-[#0AB9C6]"
             >
               View All Services
+            </button>
+            {/* New "Ask Our AI Assistant" Button */}
+            <button
+              onClick={() => {
+                setCurrentPage('faqs');
+                // Set a timeout to allow page transition before attempting to scroll
+                setTimeout(() => {
+                  const aiAssistantSection = document.getElementById('ai-assistant-section');
+                  if (aiAssistantSection) {
+                    aiAssistantSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100); // Short delay to ensure element exists after page change
+              }}
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-full shadow-xl transition duration-300 transform hover:scale-105 active:scale-95 ring-2 ring-white flex items-center justify-center space-x-2"
+            >
+              <Bot className="w-5 h-5" />
+              <span>Ask Our AI Assistant</span>
             </button>
           </div>
         </div>
@@ -569,6 +640,17 @@ const HomePage = ({ setCurrentPage }) => {
           >
             Generate Random Prompt
           </button>
+
+          {/* AI Progress Indicator */}
+          {loadingAi && (
+            <div className="mt-4 text-gray-700 text-md animate-pulse">
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-2">
+                <div className="bg-[#0AB9C6] h-2.5 rounded-full" style={{ width: '66%' }}></div> {/* Static 66% for visual */}
+              </div>
+              <p className="font-medium">{aiProgressMessage}</p>
+            </div>
+          )}
+
           {aiError && (
             <p className="text-red-600 mt-4 text-lg font-medium">{aiError}</p>
           )}
@@ -1246,6 +1328,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
   const [aiResponse, setAiResponse] = useState('');
   const [loadingAi, setLoadingAi] = useState(false);
   const [aiError, setAiError] = useState('');
+  const [aiProgressMessage, setAiProgressMessage] = useState(''); // New state for progress message
 
   const aiAssistantRef = useRef(null); // Ref for the AI assistant section
 
@@ -1366,6 +1449,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
     setAiQuestion(randomPrompts[randomIndex]);
     setAiResponse(''); // Clear previous AI response
     setAiError(''); // Clear previous AI error
+    setAiProgressMessage(''); // Clear progress message
   };
 
   const askAi = async () => {
@@ -1376,6 +1460,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
     setLoadingAi(true);
     setAiResponse('');
     setAiError('');
+    setAiProgressMessage('Connecting to AI assistant...'); // Initial message
 
     try {
       let chatHistory = [];
@@ -1384,6 +1469,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
       const apiKey = ""; // Canvas will provide this at runtime
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
+      setAiProgressMessage('Sending your query...'); // Progress message
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1391,23 +1477,33 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
       });
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.status} ${response.statusText}`);
+        const errorBody = await response.text();
+        console.error("API non-OK response:", response.status, response.statusText, errorBody);
+        throw new Error(`API error: ${response.status} ${response.statusText} - ${errorBody}`);
       }
 
+      setAiProgressMessage('Generating response for you...'); // Progress message
       const result = await response.json();
+
       if (result.candidates && result.candidates.length > 0 &&
           result.candidates[0].content && result.candidates[0].content.parts &&
           result.candidates[0].content.parts.length > 0) {
         const text = result.candidates[0].content.parts[0].text;
         setAiResponse(text);
+        setAiProgressMessage('Response generated successfully!'); // Final success message
       } else {
-        setAiError("Sorry, I couldn't generate a response. Please try again.");
+        console.error("Unexpected API response structure:", result);
+        setAiError("Sorry, I couldn't generate a response. The AI provided an unexpected format. Please try again.");
+        setAiProgressMessage('Failed to generate response.'); // Final error message
       }
     } catch (error) {
       console.error("Error calling Gemini API:", error);
-      setAiError("An error occurred while fetching a response. Please try again later.");
+      setAiError(`An error occurred while fetching a response: ${error.message || error}. Please try again later.`);
+      setAiProgressMessage('An error occurred during generation.'); // Final error message
     } finally {
       setLoadingAi(false);
+      // You might want to clear the progress message after a short delay or on next user input
+      // setTimeout(() => setAiProgressMessage(''), 3000);
     }
   };
 
@@ -1500,6 +1596,17 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
           >
             Generate Random Prompt
           </button>
+
+          {/* AI Progress Indicator */}
+          {loadingAi && (
+            <div className="mt-4 text-gray-700 text-md animate-pulse">
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-2">
+                <div className="bg-[#0AB9C6] h-2.5 rounded-full" style={{ width: '66%' }}></div> {/* Static 66% for visual */}
+              </div>
+              <p className="font-medium">{aiProgressMessage}</p>
+            </div>
+          )}
+
           {aiError && (
             <p className="text-red-600 mt-4 text-lg font-medium">{aiError}</p>
           )}
@@ -1585,7 +1692,10 @@ const App = () => {
     setShowAiPrompt(false); // Hide prompt if user clicks the button
     // Use a timeout to allow the page to render before scrolling
     setTimeout(() => {
-      setScrollToAI(true); // Signal FAQsPage to scroll to AI section
+      const aiAssistantSection = document.getElementById('ai-assistant-section');
+      if (aiAssistantSection) {
+        aiAssistantSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100); // Small delay
     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on navigation
   };
@@ -1668,6 +1778,7 @@ const App = () => {
       {isLoading && <LoadingScreen fadeEffect={fadeEffect} />}
 
       <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <ScrollProgressBar /> {/* Added the ScrollProgressBar component here */}
         <Navbar
           setCurrentPage={handlePageChangeAndScrollToTop}
           currentPage={currentPage}
