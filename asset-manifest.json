@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/abshappypaws/static/css/main.957ee1b3.css",
+    "main.js": "/abshappypaws/static/js/main.056e5e5d.js",
+    "static/js/453.5299c19e.chunk.js": "/abshappypaws/static/js/453.5299c19e.chunk.js",
+    "index.html": "/abshappypaws/index.html",
+    "main.957ee1b3.css.map": "/abshappypaws/static/css/main.957ee1b3.css.map",
+    "main.056e5e5d.js.map": "/abshappypaws/static/js/main.056e5e5d.js.map",
+    "453.5299c19e.chunk.js.map": "/abshappypaws/static/js/453.5299c19e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.957ee1b3.css",
+    "static/js/main.056e5e5d.js"
+  ]
+}
