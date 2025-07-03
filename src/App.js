@@ -1409,7 +1409,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
       link: "https://www.advancedcarevet.com/site/blog/2023/01/15/regular-vet-checkups-important",
     },
     {
-      title: "https://in.virbac.com/home/every-advice/pagecontent/every-advice/pet-nutrition-choosing-best-food-for-your-furry-friend.html",
+      title: "Pet nutrition choosing best food for your furry friend",
       date: "Mar 10, 2025",
       readTime: "8 min min read",
       link: "https://in.virbac.com/home/every-advice/pagecontent/every-advice/pet-nutrition-choosing-best-food-for-your-furry-friend.html",
