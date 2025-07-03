@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 // Lucide React for icons
-import { Home, Info, Briefcase, Image, MessageCircle, Mail, MapPin, Phone, Clock, X, PawPrint, ShoppingBag, Bot, ArrowUpCircle, Plus, Minus } from 'lucide-react';
+import { Home, Briefcase, Image, MessageCircle, Mail, MapPin, Phone, Clock, X, PawPrint, ShoppingBag, Bot, ArrowUpCircle, Plus, Minus } from 'lucide-react';
 
 // --- Static Data (Replaces Firestore for Products and Categories) ---
 const staticProductsData = [
