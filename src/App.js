@@ -325,32 +325,42 @@ const HomePage = ({ setCurrentPage }) => {
     "What vaccinations do puppies need?",
     "How do I prevent my cat from scratching furniture?",
   ];
+useEffect(() => {
+  // Capture the current value of the ref at the time the effect runs
+  const currentAboutRef = aboutRef.current; // <--- ADD THIS LINE
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAboutInView(true);
-          observer.unobserve(entry.target); // Stop observing once it's in view
-        }
-      },
-      {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.2, // 20% of the section must be visible
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setAboutInView(true);
+        // It's generally safe to unobserve entry.target here,
+        // as it refers to the specific element that triggered the intersection.
+        observer.unobserve(entry.target);
       }
-    );
-
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
+    },
+    {
+      root: null, // viewport
+      rootMargin: '0px',
+      threshold: 0.2, // 20% of the section must be visible
     }
+  );
 
-    return () => {
-      if (aboutRef.current) {
-        observer.unobserve(aboutRef.current);
-      }
-    };
-  }, []);
+  // Use the captured value for observing
+  if (currentAboutRef) { // <--- USE currentAboutRef HERE
+    observer.observe(currentAboutRef);
+  }
+
+  return () => {
+    // Use the captured value in the cleanup function
+    if (currentAboutRef) { // <--- USE currentAboutRef HERE
+      observer.unobserve(currentAboutRef);
+    }
+    // Good practice: disconnect the observer itself when the component unmounts
+    observer.disconnect();
+  };
+  // The dependency array remains empty because `currentAboutRef` is stable
+  // within the effect's scope, and `setAboutInView` is a stable state setter.
+}, []);
 
   const topServices = [
     { name: 'Full Grooming', icon: '🐕' },
