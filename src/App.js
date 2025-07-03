@@ -1382,43 +1382,43 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
       title: "How To Get Rid Of Ticks & Fleas in Dogs",
       date: "Jan 26, 2025",
       readTime: "5 min read",
-      link: "#", // Placeholder link
+      link: "https://www.petmd.com/dog/general-health/flea-and-tick-prevention-and-treatment-dogs", // Placeholder link
     },
     {
-      title: "Best interactive dog toys: Our top picks 2024",
-      date: "Jan 30, 2025",
+      title: "",
+      date: "March 30, 2025",
       readTime: "10 min read",
-      link: "#", // Placeholder link
+      link: "https://pawsindia.com/blogs/news/best-interactive-dog-toys-our-top-picks-2024", // Placeholder link
     },
     {
       title: "How to Become a Certified Groomer",
       date: "Nov 6, 2024",
       readTime: "5 min read",
-      link: "#", // Placeholder link
+      link: "https://www.theacademyofpetcareers.com/blog/how-to-become-a-dog-groomer/", // Placeholder link
     },
     {
       title: "Understanding Your Cat's Body Language",
       date: "Feb 15, 2025",
       readTime: "7 min read",
-      link: "#",
+      link: "https://www.tuftandpaw.com/blogs/cat-guides/the-definitive-guide-to-cat-behavior-and-body-language",
     },
     {
       title: "The Importance of Regular Vet Check-ups for Pets",
       date: "Mar 01, 2025",
       readTime: "6 min read",
-      link: "#",
+      link: "https://www.advancedcarevet.com/site/blog/2023/01/15/regular-vet-checkups-important",
     },
     {
-      title: "Choosing the Right Food for Your Pet's Age and Breed",
+      title: "https://in.virbac.com/home/every-advice/pagecontent/every-advice/pet-nutrition-choosing-best-food-for-your-furry-friend.html",
       date: "Mar 10, 2025",
       readTime: "8 min min read",
-      link: "#",
+      link: "https://in.virbac.com/home/every-advice/pagecontent/every-advice/pet-nutrition-choosing-best-food-for-your-furry-friend.html",
     },
     {
       title: "Tips for a Stress-Free Bath Time for Your Dog",
       date: "Apr 05, 2025",
       readTime: "4 min read",
-      link: "#",
+      link: "https://www.chewy.com/education/dog/grooming/health-grooming-8-ways-to-make-your-dogs-bathtime-less-stressfu",
     },
   ];
 
