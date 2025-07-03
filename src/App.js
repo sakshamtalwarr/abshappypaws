@@ -1385,7 +1385,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
       link: "https://www.petmd.com/dog/general-health/flea-and-tick-prevention-and-treatment-dogs", // Placeholder link
     },
     {
-      title: "",
+      title: "Best interactive dog toys: Our top picks 2025",
       date: "March 30, 2025",
       readTime: "10 min read",
       link: "https://pawsindia.com/blogs/news/best-interactive-dog-toys-our-top-picks-2024", // Placeholder link
@@ -1404,7 +1404,7 @@ const FAQsPage = ({ scrollToAI, setScrollToAI }) => {
     },
     {
       title: "The Importance of Regular Vet Check-ups for Pets",
-      date: "Mar 01, 2025",
+      date: "Jun 01, 2025",
       readTime: "6 min read",
       link: "https://www.advancedcarevet.com/site/blog/2023/01/15/regular-vet-checkups-important",
     },
