@@ -34,6 +34,8 @@ const staticCategoriesData = [
   { id: 'c9', name: 'Training' },
 ];
 
+
+
 // --- Component Definitions ---
 
 // Scroll Progress Bar Component
@@ -41,6 +43,7 @@ const ScrollProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    
     const handleScroll = () => {
       // Calculate total scrollable height (document height minus viewport height)
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -268,11 +271,11 @@ const Footer = () => {
         <div>
           <h3 className="text-2xl font-semibold mb-5 text-white font-playfair">Quick Links</h3>
           <ul className="space-y-3 text-base">
-            <li><a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200">Home</a></li>
-            <li><a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200">Services</a></li>
-            <li><a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200">Products</a></li>
-            <li><a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200">FAQs</a></li>
-            <li><a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200">Appointment</a></li>
+            <li><a className="hover:text-[#0AB9C6] transition-colors duration-200">Home</a></li>
+            <li><a className="hover:text-[#0AB9C6] transition-colors duration-200">Services</a></li>
+            <li><a className="hover:text-[#0AB9C6] transition-colors duration-200">Products</a></li>
+            <li><a  className="hover:text-[#0AB9C6] transition-colors duration-200">FAQs</a></li>
+            <li><a  className="hover:text-[#0AB9C6] transition-colors duration-200">Appointment</a></li>
           </ul>
         </div>
 
@@ -296,8 +299,8 @@ const Footer = () => {
       </div>
       <div className="border-t border-gray-700 mt-10 pt-8 text-center text-sm">
         © {new Date().getFullYear()} AB's Happy Paws. All rights reserved. <br />
-        <a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200 mr-4">Privacy Policy</a>
-        <a href="#" className="hover:text-[#0AB9C6] transition-colors duration-200">Cookies Policy</a>
+        <a  className="hover:text-[#0AB9C6] transition-colors duration-200 mr-4">Privacy Policy</a>
+        <a  className="hover:text-[#0AB9C6] transition-colors duration-200">Cookies Policy</a>
       </div>
     </footer>
   );
